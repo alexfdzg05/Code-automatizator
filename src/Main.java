@@ -21,7 +21,6 @@ public class Main {
                 System.out.println("\nOpción inexistente");
             }
         }while (opcion < 0 || opcion > 6);
-
         return opcion;
     }
 
