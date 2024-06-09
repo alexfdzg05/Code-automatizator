@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//Hacer una versión de este programa pero que corra con parámetros únicamente
 
 public class Main {
     public static void mensajeBienvenida(){
@@ -22,6 +23,33 @@ public class Main {
             }
         }while (opcion < 0 || opcion > 6);
         return opcion;
+    }
+    public static String crearObjeto(Scanner teclado){
+        String resultado;
+        resultado = crearObjeto1(teclado) + crearObjeto2(teclado);
+        return resultado;
+    }
+    private static String crearObjeto1(Scanner teclado){
+        String parte1 = "";
+        System.out.print("Tipo de objeto: ");
+        String tipo = teclado.nextLine();
+        System.out.print("Nombre del objeto: ");
+        String nombre = teclado.nextLine();
+        parte1 = tipo+" "+nombre+" = new "+tipo;
+        return parte1;
+    }
+    private static String crearObjeto2(Scanner teclado){
+        String parte2 = "";
+        System.out.print("¿Tiene argumentos el constructor?(S/N): ");
+        char a = teclado.next().charAt(0);
+        teclado.nextLine();
+        String argumentos = "";
+        if (a == 'S' || a == 's'){
+            System.out.print("(Argumentos): ");
+            argumentos += teclado.nextLine();
+        }
+        parte2 = "("+argumentos+")";
+        return parte2;
     }
 
     public static void main(String[] args) {
@@ -54,21 +82,61 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Operación 2)");
-
+                    String cadena = crearObjeto(teclado);
+                    System.out.print("¿Mismo nombre o enumerado?(N/E):");
+                    char e = teclado.next().charAt(0);
+                    System.out.print("Numero de líneas que quiere generar: ");
+                    n = teclado.nextInt();
+                    if (e == 'E' || e == 'e'){
+                        String[] cadenas = cadena.split(" ");
+                        for (int i = 0; i <= n; i++) {
+                            cadena = cadenas[0]+" "+cadenas[1]+i+1+" "+cadenas[2]+" "+cadenas[3]+" "+cadenas[4];
+                            System.out.println(cadena);
+                        }
+                    }else{
+                        for (int i = 0; i < n; i++) {
+                            System.out.println(cadena);
+                        }
+                    }
                     break;
                 case 3:
                     System.out.println("Operación 3)");
-
+                    System.out.println("Introduzca la línea de código a repetir: ");
+                    cadena = teclado.nextLine();
+                    System.out.println("Numero de líneas que quiere generar: ");
+                    n = teclado.nextInt();
+                    for (int i = 0; i < n; i++) {
+                        System.out.println(cadena);
+                    }
                     break;
                 case 4:
                     System.out.println("Operación 4)");
-
+                    System.out.print("Número de case:");
+                    n = teclado.nextInt();
+                    for (int i = 0; i < n; i++) {
+                        System.out.println("case "+i+":");
+                        System.out.println();
+                        System.out.println("\tbreak;");
+                    }
+                    System.out.println("default: ");
+                    System.out.println("\tbreak;");
                     break;
                 case 5:
                     System.out.println("Operación 5)");
-
+                    System.out.print("Número de condiciones if:");
+                    n = teclado.nextInt();
+                    System.out.println("if(){");
+                    System.out.println();
+                    for (int i = 0; i < n; i++) {
+                        System.out.println("}else if(){");
+                        System.out.println();
+                    }
+                    System.out.println("}else{");
+                    System.out.println();
+                    System.out.println("}");
                     break;
             }
         }while (opcion != 6);
+        teclado.close();
     }
 }
