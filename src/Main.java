@@ -90,7 +90,7 @@ public class Main {
                     if (e == 'E' || e == 'e'){
                         String[] cadenas = cadena.split(" ");
                         for (int i = 0; i <= n; i++) {
-                            cadena = cadenas[0]+" "+cadenas[1]+i+1+" "+cadenas[2]+" "+cadenas[3]+" "+cadenas[4];
+                            cadena = cadenas[0]+" "+cadenas[1]+(i+1)+" "+cadenas[2]+" "+cadenas[3]+" "+cadenas[4];
                             System.out.println(cadena);
                         }
                     }else{
