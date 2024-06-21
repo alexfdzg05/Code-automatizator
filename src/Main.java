@@ -66,6 +66,7 @@ public class Main {
                     boolean contenido = (eleccion == 'S' || eleccion == 's');
                     System.out.print("Número de líneas 'sout' que quiere generar: ");
                     int n = teclado.nextInt();
+                    teclado.nextLine();
                     if (contenido) {
                         System.out.print("Introduzca el contenido: ");
                         String mensaje = teclado.nextLine();
